@@ -16,8 +16,10 @@
         "**/*": "prettier --write --ignore-unknown"
     },
     "dependencies": {
+        "@shopify/restyle": "^2.1.0",
         "react": "17.0.2",
         "react-native": "0.68.2",
+        "react-native-mmkv": "^2.4.1",
         "ts-tiny-invariant": "^2.0.3"
     },
     "devDependencies": {
