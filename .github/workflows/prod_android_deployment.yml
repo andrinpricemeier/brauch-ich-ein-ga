@@ -1,8 +1,6 @@
 name: PROD Android Build
 on:
     workflow_dispatch:
-    release:
-        types: [published] # only run the workflow when a new release has been published
 jobs:
     android-build:
         name: Android Build
