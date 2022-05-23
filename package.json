@@ -4,12 +4,13 @@
     "private": true,
     "scripts": {
         "android": "react-native run-android",
-        "ios": "react-native run-ios",
         "start": "react-native start",
         "test": "jest",
         "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
         "format": "npx prettier --write .",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "np": "np --no-publish",
+        "postversion": "react-native-version"
     },
     "lint-staged": {
         "**/*": "prettier --write --ignore-unknown"
@@ -35,12 +36,18 @@
         "jest": "^26.6.3",
         "lint-staged": "^12.4.1",
         "metro-react-native-babel-preset": "^0.67.0",
+        "np": "^7.6.1",
         "prettier": "^2.6.2",
+        "react-native-version": "^4.0.0",
         "react-test-renderer": "17.0.2",
         "typescript": "^4.4.4"
     },
     "resolutions": {
         "@types/react": "^17"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/andrinmeier/brauch-ich-ein-ga.git"
     },
     "jest": {
         "preset": "react-native",
