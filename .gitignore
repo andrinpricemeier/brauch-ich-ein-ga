@@ -1,3 +1,5 @@
 node_modules
 .gradle
 *.keystore
+local.properties
+android/app/build
