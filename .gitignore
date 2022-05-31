@@ -3,3 +3,4 @@ node_modules
 *.keystore
 local.properties
 android/app/build
+node_modules
