@@ -1,6 +1,14 @@
-node_modules
-.gradle
-*.keystore
-local.properties
-android/app/build
-node_modules
+node_modules/
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store

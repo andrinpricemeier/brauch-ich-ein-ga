@@ -1,0 +1,109 @@
+.static {
+  position: static
+}
+
+.fixed {
+  position: fixed
+}
+
+.absolute {
+  position: absolute
+}
+
+.relative {
+  position: relative
+}
+
+.sticky {
+  position: sticky
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto
+}
+
+.block {
+  display: block
+}
+
+.inline-block {
+  display: inline-block
+}
+
+.flex {
+  display: flex
+}
+
+.table {
+  display: table
+}
+
+.grid {
+  display: grid
+}
+
+.hidden {
+  display: none
+}
+
+.h-full {
+  height: 100%
+}
+
+.flex-shrink {
+  flex-shrink: 1
+}
+
+.flex-grow {
+  flex-grow: 1
+}
+
+.items-center {
+  align-items: center
+}
+
+.overflow-auto {
+  overflow: auto
+}
+
+.rounded-full {
+  border-radius: 9999px
+}
+
+.border {
+  border-width: 1px
+}
+
+.bg-blue-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 219 254 / var(--tw-bg-opacity))
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity))
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem
+}
+
+.pt-12 {
+  padding-top: 3rem
+}
+
+.font-semibold {
+  font-weight: 600
+}
+
+.text-blue-800 {
+  --tw-text-opacity: 1;
+  color: rgb(30 64 175 / var(--tw-text-opacity))
+}
