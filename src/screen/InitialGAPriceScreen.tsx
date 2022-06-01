@@ -29,7 +29,7 @@ export const InitialGAPriceScreen = ({ navigation }: { navigation: any }) => {
   }, []);
 
   return (
-    <View style={tailwind("h-full flex-col m-auto justify-center p-5")}>
+    <View style={tailwind("h-full flex-col m-auto p-5")}>
       <Text style={tailwind("text-3xl mb-12")}>
         Willkommen zu{" "}
         <Text style={tailwind("font-bold text-blue")}>Brauch ich ein GA?</Text>

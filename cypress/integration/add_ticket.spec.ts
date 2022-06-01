@@ -21,6 +21,6 @@ describe("Add ticket", () => {
     cy.visit("/");
     cy.get("input").type("" + price);
     cy.contains("Speichern").click();
-    cy.contains("Dashboard");
+    cy.contains("Übersicht");
   });
 });

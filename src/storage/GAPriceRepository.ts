@@ -4,7 +4,7 @@ import { GAPrice } from "./../model/GAPrice";
 export class GAPriceRepository {
   constructor(private readonly storage: MMKV) {}
 
-  clear() {
+  clear(): void {
     this.storage.delete("ga.price");
   }
 
@@ -12,15 +12,22 @@ export class GAPriceRepository {
     this.storage.set("ga.price", price);
   }
 
-  getPrice(): GAPrice | null {
+  getPrice(): GAPrice | undefined {
     const price = this.storage.getNumber("ga.price");
     if (price === undefined) {
-      return null;
+      return undefined;
     }
     return new GAPrice(price);
   }
 
   hasPrice(): boolean {
-    return this.getPrice() !== null;
+    return this.getPrice() !== undefined;
+  }
+
+  getMonthlyAverage(): number {
+    if (!this.hasPrice()) {
+      return 0.0;
+    }
+    return this.getPrice()!.price / 12;
   }
 }

@@ -93,11 +93,6 @@
 			"flexDirection": "column"
 		}
 	},
-	"justify-center": {
-		"style": {
-			"justifyContent": "center"
-		}
-	},
 	"rounded": {
 		"style": {
 			"borderTopLeftRadius": 4,
@@ -172,16 +167,16 @@
 			"textTransform": "capitalize"
 		}
 	},
-	"text-blue": {
-		"style": {
-			"--tw-text-opacity": 1,
-			"color": "rgb(54 71 125 / var(--tw-text-opacity))"
-		}
-	},
 	"text-black": {
 		"style": {
 			"--tw-text-opacity": 1,
 			"color": "rgb(26 21 25 / var(--tw-text-opacity))"
+		}
+	},
+	"text-blue": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(54 71 125 / var(--tw-text-opacity))"
 		}
 	}
 }

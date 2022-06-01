@@ -4,16 +4,16 @@ import { Ticket } from "../model/Ticket";
 export class TicketRepository {
   constructor(private readonly storage: MMKV) {}
 
-  clear() {
+  clear(): void {
     this.storage.delete("tickets");
   }
 
-  addTicket(ticket: Ticket): void {
+  addTicket(price: number): void {
     let allTickets = [];
     if (this.storage.contains("tickets")) {
       allTickets = JSON.parse(this.storage.getString("tickets")!);
     }
-    allTickets.push(ticket);
+    allTickets.push(new Ticket(price, new Date()));
     this.storage.set("tickets", JSON.stringify(allTickets));
   }
 
@@ -22,5 +22,20 @@ export class TicketRepository {
       return [];
     }
     return JSON.parse(this.storage.getString("tickets")!);
+  }
+
+  getMonthlyAverage(): number {
+    const tickets = this.getTickets();
+    const yearMonths = tickets.map((ticket) => {
+      const realDate = new Date(ticket.dateAdded);
+      return `${realDate.getFullYear()}-${realDate.getMonth()}`;
+    });
+    const distinctMonths = yearMonths.filter((value, index, self) => {
+      return self.indexOf(value) == index;
+    });
+    const numberOfMonths = distinctMonths.length;
+    return (
+      tickets.reduce((acc, current) => acc + current.price, 0) / numberOfMonths
+    );
   }
 }

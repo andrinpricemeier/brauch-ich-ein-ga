@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
 import { useTailwind } from "tailwind-rn";
-import { Ticket } from "../model/Ticket";
 import { storage } from "../storage/storage";
 import { TicketRepository } from "../storage/TicketRepository";
 
@@ -13,8 +12,7 @@ export const AddTicketScreen = ({ navigation }: { navigation: any }) => {
 
   const onSave = useCallback(
     (e) => {
-      const ticket = new Ticket(parseFloat(price), new Date());
-      repository.addTicket(ticket);
+      repository.addTicket(parseFloat(price));
       navigation.navigate("Dashboard");
     },
     [price]
@@ -25,7 +23,7 @@ export const AddTicketScreen = ({ navigation }: { navigation: any }) => {
   }, []);
 
   return (
-    <View style={tailwind("h-full flex-col m-auto justify-center p-5")}>
+    <View style={tailwind("h-full flex-col m-auto p-5")}>
       <Text style={tailwind("text-3xl mb-12")}>Fahrbilletkauf erfassen</Text>
       <Text>Preis des Fahrbillets</Text>
       <TextInput
