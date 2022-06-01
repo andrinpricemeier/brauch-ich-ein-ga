@@ -1,9 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Button, Text, TextInput, View } from "react-native";
+import { View } from "react-native";
 import { useTailwind } from "tailwind-rn";
 import { AppButton } from "../components/AppButton";
+import { NumericInputBox } from "../components/NumericInputBox";
+import { Title } from "../components/Title";
 import { storage } from "../storage/storage";
 import { TicketRepository } from "../storage/TicketRepository";
+import { dinero, toUnit, down } from "dinero.js";
+import { CHF } from "@dinero.js/currencies";
 
 const repository = new TicketRepository(storage);
 
@@ -28,16 +32,19 @@ export const AddTicketScreen = ({
     }
     const ticket = repository.getTicketById(ticketId);
     if (ticket) {
-      setPrice("" + ticket.price);
+      const price = dinero({ amount: ticket.price, currency: CHF });
+      const prettyPrice = toUnit(price, { digits: 2, round: down });
+      setPrice("" + prettyPrice);
     }
   }, [ticketId]);
 
   const onSave = useCallback(
     (e) => {
+      const intPrice = Math.floor(parseFloat(price) * 100);
       if (ticketId) {
-        repository.editTicket(ticketId, parseFloat(price));
+        repository.editTicket(ticketId, intPrice);
       } else {
-        repository.addTicket(parseFloat(price));
+        repository.addTicket(intPrice);
       }
       navigation.navigate("Dashboard");
     },
@@ -49,16 +56,12 @@ export const AddTicketScreen = ({
   }, []);
 
   return (
-    <View style={tailwind("h-full flex-col m-auto p-5")}>
-      <Text style={tailwind("text-3xl mb-12")}>Fahrbilletkauf erfassen</Text>
-      <Text>Preis des Fahrbillets</Text>
-      <TextInput
-        style={tailwind(
-          "border-black text-black h-10 border-2 py-5 px-2 rounded my-2"
-        )}
+    <View style={tailwind("m-auto h-full flex-col p-5")}>
+      <Title text="Billetpreis in CHF" style={tailwind("mb-3")} />
+      <NumericInputBox
         onChange={onPriceChange}
         value={price}
-        keyboardType="numeric"
+        style={tailwind("mb-1")}
       />
       <AppButton onPress={onSave} title="Speichern" />
     </View>

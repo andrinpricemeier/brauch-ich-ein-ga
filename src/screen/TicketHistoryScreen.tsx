@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Button, FlatList, Text, TextInput, View } from "react-native";
 import { useTailwind } from "tailwind-rn";
 import { AppButton } from "../components/AppButton";
+import { TicketEntry } from "../components/TicketEntry";
 import { Ticket } from "../model/Ticket";
 import { storage } from "../storage/storage";
 import { TicketRepository } from "../storage/TicketRepository";
@@ -18,12 +19,12 @@ export const TicketHistoryScreen = ({ navigation }: { navigation: any }) => {
     setTickets(repository.getTickets());
   }, [isFocused]);
 
-  const editTicket = useCallback((ticketId: string) => {
-    navigation.navigate("Fahrbilletkauf erfassen", { ticketId: ticketId });
+  const editTicket = useCallback((ticket: Ticket) => {
+    navigation.navigate("Billet erfassen", { ticketId: ticket.id });
   }, []);
 
-  const deleteTicket = useCallback((ticketId: string) => {
-    repository.deleteTicket(ticketId);
+  const deleteTicket = useCallback((ticket: Ticket) => {
+    repository.deleteTicket(ticket.id);
     setTickets(repository.getTickets());
   }, []);
 
@@ -32,14 +33,11 @@ export const TicketHistoryScreen = ({ navigation }: { navigation: any }) => {
       <FlatList
         data={tickets}
         renderItem={({ item }: { item: any }) => (
-          <View>
-            <Text>
-              CHF {item.price.toFixed(2)} (
-              {new Date(item.dateAdded).toISOString()})
-            </Text>
-            <AppButton onPress={() => editTicket(item.id)} title="Ändern" />
-            <AppButton onPress={() => deleteTicket(item.id)} title="Löschen" />
-          </View>
+          <TicketEntry
+            ticket={item}
+            onEdit={editTicket}
+            onDelete={deleteTicket}
+          />
         )}
       />
     </View>

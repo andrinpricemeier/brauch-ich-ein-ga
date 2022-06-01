@@ -2,14 +2,14 @@ import React from "react";
 import { Text, Pressable, StyleProp } from "react-native";
 import { useTailwind } from "tailwind-rn";
 
-export interface IAppButtonProps {
+export interface IInlineButtonProps {
   title: string;
   onPress: (e: any) => void;
   buttonStyle?: StyleProp<any>;
   textStyle?: StyleProp<any>;
 }
 
-export const AppButton = (props: IAppButtonProps) => {
+export const InlineButton = (props: IInlineButtonProps) => {
   const tailwind = useTailwind();
   return (
     <Pressable
@@ -19,7 +19,7 @@ export const AppButton = (props: IAppButtonProps) => {
         props.buttonStyle,
       ]}
     >
-      <Text style={[tailwind("text-white font-semibold"), props.textStyle]}>
+      <Text style={[tailwind("text-white"), props.textStyle]}>
         {props.title}
       </Text>
     </Pressable>

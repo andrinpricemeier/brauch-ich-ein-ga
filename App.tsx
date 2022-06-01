@@ -25,8 +25,8 @@ const linking = {
     screens: {
       "GA-Preis": "gaprice",
       Dashboard: "dashboard",
-      "Fahrbilletkauf erfassen": "addticket",
-      Fahrbillets: "tickets",
+      "Billet erfassen": "addticket",
+      Billets: "tickets",
     },
   },
 };
@@ -46,11 +46,8 @@ const App = () => {
         <Stack.Navigator initialRouteName="Dashboard">
           <Stack.Screen name="Dashboard" component={DashboardScreen} />
           <Stack.Screen name="GA-Preis" component={EditGAPriceScreen} />
-          <Stack.Screen
-            name="Fahrbilletkauf erfassen"
-            component={AddTicketScreen}
-          />
-          <Stack.Screen name="Fahrbillets" component={TicketHistoryScreen} />
+          <Stack.Screen name="Billet erfassen" component={AddTicketScreen} />
+          <Stack.Screen name="Billets" component={TicketHistoryScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </TailwindProvider>

@@ -17,7 +17,7 @@ describe("Display dashboard", () => {
     cy.window().its("ticketRepository").invoke("addTicket", 5);
     cy.window().its("ticketRepository").invoke("addTicket", 10);
     cy.reload(true);
-    cy.contains("Kosten pro Monat für Fahrbilletkauf: 15");
+    cy.contains("Kosten pro Monat für Billets: 15");
   });
 
   it("shows yes when GA should be bought", () => {
@@ -40,7 +40,7 @@ describe("Display dashboard", () => {
 
   it("should allow user to add new ticket", () => {
     cy.visit("/dashboard");
-    cy.contains("Fahrbilletkauf erfassen").click();
-    cy.contains("Preis des Fahrbillets");
+    cy.contains("Billet erfassen").click();
+    cy.contains("Preis des Billets");
   });
 });

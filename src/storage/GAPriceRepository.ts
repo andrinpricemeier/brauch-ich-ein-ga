@@ -1,5 +1,7 @@
 import { MMKV } from "react-native-mmkv";
 import { GAPrice } from "./../model/GAPrice";
+import { dinero, allocate, Dinero } from "dinero.js";
+import { CHF } from "@dinero.js/currencies";
 
 export class GAPriceRepository {
   constructor(private readonly storage: MMKV) {}
@@ -24,10 +26,13 @@ export class GAPriceRepository {
     return this.getPrice() !== undefined;
   }
 
-  getMonthlyAverage(): number {
+  getMonthlyAverage(): Dinero<number> {
     if (!this.hasPrice()) {
-      return 0.0;
+      return dinero({ amount: 0.0, currency: CHF });
     }
-    return this.getPrice()!.price / 12;
+    const price = this.getPrice()!.price;
+    const d = dinero({ amount: price, currency: CHF });
+    const [oneTwelth, _] = allocate(d, [1, 11]);
+    return oneTwelth;
   }
 }

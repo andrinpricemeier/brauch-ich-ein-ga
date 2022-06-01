@@ -1,5 +1,7 @@
 import { MMKV } from "react-native-mmkv";
 import { Ticket } from "../model/Ticket";
+import { dinero, add, allocate, subtract, Dinero } from "dinero.js";
+import { CHF } from "@dinero.js/currencies";
 
 export class TicketRepository {
   constructor(private readonly storage: MMKV) {}
@@ -55,8 +57,11 @@ export class TicketRepository {
     return this.getTickets().find((ticket) => ticket.id === id);
   }
 
-  getMonthlyAverage(): number {
+  getMonthlyAverage(): Dinero<number> {
     const tickets = this.getTickets();
+    if (tickets.length === 0) {
+      return dinero({ amount: 0.0, currency: CHF });
+    }
     const yearMonths = tickets.map((ticket) => {
       const realDate = new Date(ticket.dateAdded);
       return `${realDate.getFullYear()}-${realDate.getMonth()}`;
@@ -65,8 +70,11 @@ export class TicketRepository {
       return self.indexOf(value) == index;
     });
     const numberOfMonths = distinctMonths.length;
-    return (
-      tickets.reduce((acc, current) => acc + current.price, 0) / numberOfMonths
+    const total = tickets.reduce(
+      (acc, { price }) => add(acc, dinero({ amount: price, currency: CHF })),
+      dinero({ amount: 0, currency: CHF })
     );
+    const [onePart, _] = allocate(total, [1, numberOfMonths - 1]);
+    return onePart;
   }
 }
