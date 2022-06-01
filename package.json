@@ -34,9 +34,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@cypress/code-coverage": "^3.10.0",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.66.13",
     "babel-loader": "^8.2.5",
+    "babel-plugin-istanbul": "^6.1.1",
     "concurrently": "^7.2.1",
     "cypress": "^9.7.0",
     "postcss": "^8.4.14",
