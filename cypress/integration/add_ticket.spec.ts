@@ -12,15 +12,15 @@ describe("Add ticket", () => {
       .its("ticketRepository")
       .invoke("getTickets")
       .then((tickets) => {
-        expect(tickets[0].price).to.eq(price);
+        expect(tickets[0].price).to.eq(price * 100);
       });
   });
 
   it("after adding ticket, should navigate to dashboard", () => {
-    const price = 14.15;
+    const price = 1415;
     cy.visit("/addticket");
     cy.get("input").type("" + price);
     cy.contains("Speichern").click();
-    cy.contains("Übersicht");
+    cy.contains("Brauchst du ein GA?");
   });
 });

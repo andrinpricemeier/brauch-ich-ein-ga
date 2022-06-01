@@ -7,17 +7,23 @@ describe("Display dashboard", () => {
 
   it("shows average ga price", () => {
     cy.visit("/dashboard");
-    cy.window().its("gaPriceRepository").invoke("setPrice", 120);
+    cy.window()
+      .its("gaPriceRepository")
+      .invoke("setPrice", 120 * 100);
     cy.reload(true);
-    cy.contains("Kosten pro Monat für GA: 10");
+    cy.contains(10);
   });
 
   it("shows average bought tickets price", () => {
     cy.visit("/dashboard");
-    cy.window().its("ticketRepository").invoke("addTicket", 5);
-    cy.window().its("ticketRepository").invoke("addTicket", 10);
+    cy.window()
+      .its("ticketRepository")
+      .invoke("addTicket", 100 * 100);
+    cy.window()
+      .its("ticketRepository")
+      .invoke("addTicket", 100 * 100);
     cy.reload(true);
-    cy.contains("Kosten pro Monat für Billets: 15");
+    cy.contains("100");
   });
 
   it("shows yes when GA should be bought", () => {
@@ -26,7 +32,7 @@ describe("Display dashboard", () => {
     cy.window().its("ticketRepository").invoke("addTicket", 100);
     cy.window().its("ticketRepository").invoke("addTicket", 200);
     cy.reload(true);
-    cy.contains("Brauchst du ein GA? Ja!");
+    cy.contains("Ja!");
   });
 
   it("shows no when GA should not be bought", () => {
@@ -35,12 +41,11 @@ describe("Display dashboard", () => {
     cy.window().its("ticketRepository").invoke("addTicket", 2);
     cy.window().its("ticketRepository").invoke("addTicket", 5);
     cy.reload(true);
-    cy.contains("Brauchst du ein GA? Nein, noch nicht.");
+    cy.contains("Nein, noch nicht.");
   });
 
   it("should allow user to add new ticket", () => {
     cy.visit("/dashboard");
     cy.contains("Billet erfassen").click();
-    cy.contains("Preis des Billets");
   });
 });

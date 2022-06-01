@@ -1,6 +1,6 @@
 describe("Set initial GA price", () => {
   it("stores price", () => {
-    const price = 4523.52;
+    const price = 4523;
     cy.visit("/gaprice");
     cy.get("input").type("" + price);
     cy.contains("Speichern").click();
@@ -8,7 +8,7 @@ describe("Set initial GA price", () => {
       .its("gaPriceRepository")
       .invoke("getPrice")
       .its("price")
-      .should("eq", price);
+      .should("eq", price * 100);
   });
 
   it("after initial GA price set, should navigate to dashboard", () => {
@@ -16,6 +16,6 @@ describe("Set initial GA price", () => {
     cy.visit("/gaprice");
     cy.get("input").type("" + price);
     cy.contains("Speichern").click();
-    cy.contains("Übersicht");
+    cy.contains("Brauchst du ein GA?");
   });
 });
