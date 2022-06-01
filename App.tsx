@@ -6,6 +6,7 @@ import utilities from "./tailwind.json";
 import { InitialGAPriceScreen } from "./src/screen/InitialGAPriceScreen";
 import { GAPriceRepository } from "./src/storage/GAPriceRepository";
 import { storage } from "./src/storage/storage";
+import { DashboardScreen } from "./src/screen/DashboardScreen";
 
 const MyTheme = {
   ...DefaultTheme,
@@ -26,8 +27,9 @@ const App = () => {
   return (
     <TailwindProvider utilities={utilities}>
       <NavigationContainer theme={MyTheme}>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="GA Preis">
           <Stack.Screen name="GA Preis" component={InitialGAPriceScreen} />
+          <Stack.Screen name="Dashboard" component={DashboardScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </TailwindProvider>

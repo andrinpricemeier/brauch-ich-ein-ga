@@ -8,11 +8,15 @@ export class GAPriceRepository {
     this.storage.set("ga.price", price);
   }
 
-  getPrice(): GAPrice {
+  getPrice(): GAPrice | null {
     const price = this.storage.getNumber("ga.price");
     if (price === undefined) {
-      return new GAPrice(0.0);
+      return null;
     }
     return new GAPrice(price);
+  }
+
+  hasPrice(): boolean {
+    return this.getPrice() !== null;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
 import { useTailwind } from "tailwind-rn";
 import { GAPriceRepository } from "../storage/GAPriceRepository";
@@ -6,13 +6,20 @@ import { storage } from "../storage/storage";
 
 const repository = new GAPriceRepository(storage);
 
-export const InitialGAPriceScreen = () => {
+export const InitialGAPriceScreen = ({ navigation }: { navigation: any }) => {
   const tailwind = useTailwind();
   const [price, setPrice] = useState<string>("");
+
+  useEffect(() => {
+    if (repository.hasPrice()) {
+      navigation.navigate("Dashboard");
+    }
+  }, []);
 
   const onSave = useCallback(
     (e) => {
       repository.setPrice(parseFloat(price));
+      navigation.navigate("Dashboard");
     },
     [price]
   );
