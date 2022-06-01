@@ -1,7 +1,3 @@
-.static {
-  position: static
-}
-
 .fixed {
   position: fixed
 }
@@ -18,9 +14,17 @@
   position: sticky
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto
+.m-auto {
+  margin: auto
+}
+
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem
+}
+
+.mb-12 {
+  margin-bottom: 3rem
 }
 
 .block {
@@ -31,6 +35,10 @@
   display: inline-block
 }
 
+.inline {
+  display: inline
+}
+
 .flex {
   display: flex
 }
@@ -39,12 +47,16 @@
   display: table
 }
 
-.grid {
-  display: grid
-}
-
 .hidden {
   display: none
+}
+
+.h-full {
+  height: 100%
+}
+
+.h-10 {
+  height: 2.5rem
 }
 
 .flex-shrink {
@@ -55,15 +67,68 @@
   flex-grow: 1
 }
 
-.overflow-auto {
-  overflow: auto
+.flex-col {
+  flex-direction: column
+}
+
+.justify-center {
+  justify-content: center
+}
+
+.rounded {
+  border-radius: 0.25rem
+}
+
+.border-2 {
+  border-width: 2px
 }
 
 .border {
   border-width: 1px
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity))
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(26 21 25 / var(--tw-border-opacity))
+}
+
+.p-5 {
+  padding: 1.25rem
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem
+}
+
+.font-bold {
+  font-weight: 700
+}
+
+.uppercase {
+  text-transform: uppercase
+}
+
+.capitalize {
+  text-transform: capitalize
+}
+
+.text-blue {
+  --tw-text-opacity: 1;
+  color: rgb(54 71 125 / var(--tw-text-opacity))
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(26 21 25 / var(--tw-text-opacity))
 }

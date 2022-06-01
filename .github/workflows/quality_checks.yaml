@@ -1,11 +1,11 @@
-name: test
+name: quality_checks
 on:
   push:
 permissions:
   actions: write
   contents: read
 jobs:
-  cypress:
+  all_checks:
     name: Cypress
     runs-on: ubuntu-latest
     steps:
