@@ -33,6 +33,7 @@
     "react-native-screens": "~3.11.1",
     "react-native-web": "0.17.7",
     "tailwind-rn": "^4.2.0",
+    "uuid": "^3.4.0",
     "webpack-dev-server": "~3.11.0"
   },
   "devDependencies": {
@@ -40,6 +41,7 @@
     "@cypress/code-coverage": "^3.10.0",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.66.13",
+    "@types/uuid": "^8.3.4",
     "babel-loader": "^8.2.5",
     "babel-plugin-istanbul": "^6.1.1",
     "concurrently": "^7.2.1",

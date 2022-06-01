@@ -4,6 +4,10 @@ import { GAPrice } from "./../model/GAPrice";
 export class GAPriceRepository {
   constructor(private readonly storage: MMKV) {}
 
+  clear() {
+    this.storage.delete("ga.price");
+  }
+
   setPrice(price: number): void {
     this.storage.set("ga.price", price);
   }
