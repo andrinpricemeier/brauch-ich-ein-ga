@@ -1,4 +1,4 @@
-name: 🚀 webapp
+name: test
 on:
   push:
 permissions:
@@ -6,28 +6,28 @@ permissions:
   contents: read
 jobs:
   cypress:
-    name: ⚫️ Cypress
+    name: Cypress
     runs-on: ubuntu-latest
     steps:
-      - name: 🛑 Cancel Previous Runs
+      - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.9.1
 
-      - name: ⬇️ Checkout repo
+      - name: Checkout repo
         uses: actions/checkout@v3
         with:
           fetch-depth: 0 
 
-      - name: ⎔ Setup node
+      - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: 16
 
-      - name: 📥 Download deps
+      - name: Download deps
         uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
 
-      - name: 🌳 Cypress run
+      - name: Cypress run
         uses: cypress-io/github-action@v3
         with:
           start: npm run web
