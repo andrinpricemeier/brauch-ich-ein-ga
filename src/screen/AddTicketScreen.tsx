@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Button, Text, TextInput, View } from "react-native";
 import { useTailwind } from "tailwind-rn";
+import { AppButton } from "../components/AppButton";
 import { storage } from "../storage/storage";
 import { TicketRepository } from "../storage/TicketRepository";
 
@@ -59,7 +60,7 @@ export const AddTicketScreen = ({
         value={price}
         keyboardType="numeric"
       />
-      <Button onPress={onSave} title="Speichern" />
+      <AppButton onPress={onSave} title="Speichern" />
     </View>
   );
 };

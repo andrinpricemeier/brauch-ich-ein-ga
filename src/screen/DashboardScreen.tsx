@@ -6,6 +6,7 @@ import { useTailwind } from "tailwind-rn";
 import React, { useCallback, useEffect } from "react";
 import { ShouldIBuyAGASpecification } from "../model/ShouldIBuyAGASpecification";
 import { useIsFocused } from "@react-navigation/native";
+import { AppButton } from "../components/AppButton";
 
 const gaPriceRepository = new GAPriceRepository(storage);
 const ticketRepository = new TicketRepository(storage);
@@ -49,9 +50,9 @@ export const DashboardScreen = ({ navigation }: { navigation: any }) => {
         Kosten pro Monat für Fahrbilletkauf:{" "}
         {ticketRepository.getMonthlyAverage()}
       </Text>
-      <Button onPress={addTicket} title="Fahrbilletkauf erfassen" />
-      <Button onPress={viewTickets} title="Fahrbillets anschauen" />
-      <Button onPress={changeGAPrice} title="GA-Preis ändern" />
+      <AppButton onPress={addTicket} title="Fahrbilletkauf erfassen" />
+      <AppButton onPress={viewTickets} title="Fahrbillets anschauen" />
+      <AppButton onPress={changeGAPrice} title="GA-Preis ändern" />
     </View>
   );
 };

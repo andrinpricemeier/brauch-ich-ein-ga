@@ -2,6 +2,7 @@ import { useIsFocused } from "@react-navigation/native";
 import React, { useCallback, useEffect, useState } from "react";
 import { Button, FlatList, Text, TextInput, View } from "react-native";
 import { useTailwind } from "tailwind-rn";
+import { AppButton } from "../components/AppButton";
 import { Ticket } from "../model/Ticket";
 import { storage } from "../storage/storage";
 import { TicketRepository } from "../storage/TicketRepository";
@@ -36,8 +37,8 @@ export const TicketHistoryScreen = ({ navigation }: { navigation: any }) => {
               CHF {item.price.toFixed(2)} (
               {new Date(item.dateAdded).toISOString()})
             </Text>
-            <Button onPress={() => editTicket(item.id)} title="Ändern" />
-            <Button onPress={() => deleteTicket(item.id)} title="Löschen" />
+            <AppButton onPress={() => editTicket(item.id)} title="Ändern" />
+            <AppButton onPress={() => deleteTicket(item.id)} title="Löschen" />
           </View>
         )}
       />

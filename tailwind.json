@@ -1,4 +1,9 @@
 {
+	"static": {
+		"style": {
+			"position": "static"
+		}
+	},
 	"fixed": {
 		"style": {
 			"position": "fixed"
@@ -33,6 +38,12 @@
 			"marginBottom": 8
 		}
 	},
+	"mx-auto": {
+		"style": {
+			"marginLeft": "auto",
+			"marginRight": "auto"
+		}
+	},
 	"mb-12": {
 		"style": {
 			"marginBottom": 48
@@ -63,6 +74,11 @@
 			"display": "table"
 		}
 	},
+	"grid": {
+		"style": {
+			"display": "grid"
+		}
+	},
 	"hidden": {
 		"style": {
 			"display": "none"
@@ -91,6 +107,11 @@
 	"flex-col": {
 		"style": {
 			"flexDirection": "column"
+		}
+	},
+	"overflow-auto": {
+		"style": {
+			"overflow": "auto"
 		}
 	},
 	"rounded": {
@@ -126,6 +147,24 @@
 			"borderLeftColor": "rgb(26 21 25 / var(--tw-border-opacity))"
 		}
 	},
+	"bg-white": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(251 251 250 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-red": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(241 88 76 / var(--tw-bg-opacity))"
+		}
+	},
+	"bg-black": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(26 21 25 / var(--tw-bg-opacity))"
+		}
+	},
 	"p-5": {
 		"style": {
 			"paddingTop": 20,
@@ -146,6 +185,11 @@
 			"paddingRight": 8
 		}
 	},
+	"text-center": {
+		"style": {
+			"textAlign": "center"
+		}
+	},
 	"text-3xl": {
 		"style": {
 			"fontSize": 30,
@@ -155,6 +199,16 @@
 	"font-bold": {
 		"style": {
 			"fontWeight": "700"
+		}
+	},
+	"font-medium": {
+		"style": {
+			"fontWeight": "500"
+		}
+	},
+	"font-semibold": {
+		"style": {
+			"fontWeight": "600"
 		}
 	},
 	"uppercase": {
@@ -177,6 +231,24 @@
 		"style": {
 			"--tw-text-opacity": 1,
 			"color": "rgb(54 71 125 / var(--tw-text-opacity))"
+		}
+	},
+	"text-white": {
+		"style": {
+			"--tw-text-opacity": 1,
+			"color": "rgb(251 251 250 / var(--tw-text-opacity))"
+		}
+	},
+	"active:bg-blue:active": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(54 71 125 / var(--tw-bg-opacity))"
+		}
+	},
+	"active:bg-black:active": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(26 21 25 / var(--tw-bg-opacity))"
 		}
 	}
 }
