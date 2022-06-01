@@ -16,10 +16,7 @@ export const TicketEntry = (props: ITicketEntryProps) => {
   const tailwind = useTailwind();
   return (
     <View style={tailwind("flex flex-col mb-3")}>
-      <Price
-        style={tailwind("text-2xl align-middle")}
-        price={props.ticket.price}
-      />
+      <Price style={tailwind("text-2xl")} price={props.ticket.price} />
       <RelativeDate date={new Date(props.ticket.dateAdded)} />
       <View style={tailwind("flex flex-row mt-1")}>
         <InlineButton

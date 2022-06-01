@@ -6,9 +6,10 @@ import { useTailwind } from "tailwind-rn";
 import React, { useCallback, useEffect } from "react";
 import { ShouldIBuyAGASpecification } from "../model/ShouldIBuyAGASpecification";
 import { useIsFocused } from "@react-navigation/native";
-import { AppButton } from "../components/AppButton";
+import { PrimaryButton } from "../components/PrimaryButton";
 import { Title } from "../components/Title";
 import { toUnit, down } from "dinero.js";
+import { SecondaryButton } from "../components/SecondaryButton";
 
 const gaPriceRepository = new GAPriceRepository(storage);
 const ticketRepository = new TicketRepository(storage);
@@ -48,7 +49,7 @@ export const DashboardScreen = ({ navigation }: { navigation: any }) => {
       </View>
       <View style={tailwind("flex flex-row mb-8")}>
         <View style={tailwind("w-2/3")}>
-          <Text>Kosten GA</Text>
+          <Text>CHF GA</Text>
           <Text style={tailwind("font-semibold text-lg")}>
             {toUnit(gaPriceRepository.getMonthlyAverage(), {
               digits: 2,
@@ -57,7 +58,7 @@ export const DashboardScreen = ({ navigation }: { navigation: any }) => {
           </Text>
         </View>
         <View>
-          <Text>Kosten Billets</Text>
+          <Text>CHF Billets</Text>
           <Text style={tailwind("font-semibold text-lg")}>
             {toUnit(ticketRepository.getMonthlyAverage(), {
               digits: 2,
@@ -66,16 +67,16 @@ export const DashboardScreen = ({ navigation }: { navigation: any }) => {
           </Text>
         </View>
       </View>
-      <View style={tailwind("flex flex-row")}>
-        <AppButton onPress={addTicket} title="Billet erfassen" />
-        <AppButton
-          onPress={viewTickets}
-          title="Gekaufte Billets"
-          buttonStyle={tailwind("ml-3")}
-        />
-        <AppButton
+      <PrimaryButton
+        onPress={addTicket}
+        title="Billet erfassen"
+        buttonStyle={tailwind("mr-4")}
+      />
+      <View style={tailwind("flex flex-row mt-3 w-full")}>
+        <SecondaryButton onPress={viewTickets} title="Billets anzeigen" />
+        <SecondaryButton
           onPress={changeGAPrice}
-          title="GA ändern"
+          title="GA-Preis ändern"
           buttonStyle={tailwind("ml-3")}
         />
       </View>

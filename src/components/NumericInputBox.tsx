@@ -4,7 +4,7 @@ import { useTailwind } from "tailwind-rn";
 
 export interface INumericInputBoxProps {
   value: string;
-  onChange: (e: any) => void;
+  onChange: (text: string) => void;
   style?: StyleProp<TextStyle>;
 }
 
@@ -13,12 +13,10 @@ export const NumericInputBox = (props: INumericInputBoxProps) => {
   return (
     <TextInput
       style={[
-        tailwind(
-          "max-w-xs border-red text-black h-10 border-2 py-5 px-2 rounded"
-        ),
+        tailwind("max-w-xs border-red text-black border-2 p-3 rounded"),
         props.style,
       ]}
-      onChange={props.onChange}
+      onChangeText={props.onChange}
       value={props.value}
       keyboardType="numeric"
     />

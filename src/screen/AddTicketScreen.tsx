@@ -1,13 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { View } from "react-native";
 import { useTailwind } from "tailwind-rn";
-import { AppButton } from "../components/AppButton";
+import { PrimaryButton } from "../components/PrimaryButton";
 import { NumericInputBox } from "../components/NumericInputBox";
 import { Title } from "../components/Title";
 import { storage } from "../storage/storage";
 import { TicketRepository } from "../storage/TicketRepository";
 import { dinero, toUnit, down } from "dinero.js";
 import { CHF } from "@dinero.js/currencies";
+import { isValidNumber } from "../model/Validation";
 
 const repository = new TicketRepository(storage);
 
@@ -27,7 +28,7 @@ export const AddTicketScreen = ({
 
   useEffect(() => {
     if (!ticketId) {
-      setPrice("0");
+      setPrice("");
       return;
     }
     const ticket = repository.getTicketById(ticketId);
@@ -40,6 +41,9 @@ export const AddTicketScreen = ({
 
   const onSave = useCallback(
     (e) => {
+      if (!isValidNumber(price)) {
+        return;
+      }
       const intPrice = Math.floor(parseFloat(price) * 100);
       if (ticketId) {
         repository.editTicket(ticketId, intPrice);
@@ -51,8 +55,8 @@ export const AddTicketScreen = ({
     [price]
   );
 
-  const onPriceChange = useCallback((e) => {
-    setPrice((_) => e.target.value);
+  const onPriceChange = useCallback((text: string) => {
+    setPrice((_) => text);
   }, []);
 
   return (
@@ -63,7 +67,11 @@ export const AddTicketScreen = ({
         value={price}
         style={tailwind("mb-1")}
       />
-      <AppButton onPress={onSave} title="Speichern" />
+      <PrimaryButton
+        enabled={isValidNumber(price)}
+        onPress={onSave}
+        title="Speichern"
+      />
     </View>
   );
 };

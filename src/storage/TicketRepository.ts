@@ -50,7 +50,11 @@ export class TicketRepository {
     if (!this.storage.contains("tickets")) {
       return [];
     }
-    return JSON.parse(this.storage.getString("tickets")!);
+    const tickets = JSON.parse(this.storage.getString("tickets")!);
+    tickets.sort((a: Ticket, b: Ticket) => {
+      return new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
+    });
+    return tickets;
   }
 
   getTicketById(id: string): Ticket | undefined {

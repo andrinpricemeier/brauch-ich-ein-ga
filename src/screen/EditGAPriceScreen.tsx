@@ -1,13 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Text, TextInput, View } from "react-native";
 import { useTailwind } from "tailwind-rn";
-import { AppButton } from "../components/AppButton";
+import { PrimaryButton } from "../components/PrimaryButton";
 import { NumericInputBox } from "../components/NumericInputBox";
 import { GAPriceRepository } from "../storage/GAPriceRepository";
 import { storage } from "../storage/storage";
 import { dinero, toUnit, down } from "dinero.js";
 import { CHF } from "@dinero.js/currencies";
 import { Title } from "../components/Title";
+import { isValidNumber } from "../model/Validation";
 
 const repository = new GAPriceRepository(storage);
 
@@ -21,19 +22,24 @@ export const EditGAPriceScreen = ({ navigation }: { navigation: any }) => {
       const price = dinero({ amount: intPrice, currency: CHF });
       const prettyPrice = toUnit(price, { digits: 2, round: down });
       setPrice("" + prettyPrice);
+    } else {
+      setPrice("");
     }
   }, []);
 
   const onSave = useCallback(
     (e) => {
+      if (!isValidNumber(price)) {
+        return;
+      }
       repository.setPrice(Math.floor(parseFloat(price) * 100));
       navigation.navigate("Dashboard");
     },
     [price]
   );
 
-  const onPriceChange = useCallback((e) => {
-    setPrice((_) => e.target.value);
+  const onPriceChange = useCallback((text: string) => {
+    setPrice((_) => text);
   }, []);
 
   return (
@@ -44,7 +50,11 @@ export const EditGAPriceScreen = ({ navigation }: { navigation: any }) => {
         value={price}
         style={tailwind("mb-1")}
       />
-      <AppButton onPress={onSave} title="Speichern" />
+      <PrimaryButton
+        enabled={isValidNumber(price)}
+        onPress={onSave}
+        title="Speichern"
+      />
     </View>
   );
 };

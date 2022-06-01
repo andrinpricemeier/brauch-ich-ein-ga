@@ -2,7 +2,7 @@ import { useIsFocused } from "@react-navigation/native";
 import React, { useCallback, useEffect, useState } from "react";
 import { Button, FlatList, Text, TextInput, View } from "react-native";
 import { useTailwind } from "tailwind-rn";
-import { AppButton } from "../components/AppButton";
+import { PrimaryButton } from "../components/PrimaryButton";
 import { TicketEntry } from "../components/TicketEntry";
 import { Ticket } from "../model/Ticket";
 import { storage } from "../storage/storage";
@@ -29,7 +29,7 @@ export const TicketHistoryScreen = ({ navigation }: { navigation: any }) => {
   }, []);
 
   return (
-    <View style={tailwind("h-full flex-col m-auto p-5")}>
+    <View style={tailwind("h-full flex-col p-5")}>
       <FlatList
         data={tickets}
         renderItem={({ item }: { item: any }) => (
