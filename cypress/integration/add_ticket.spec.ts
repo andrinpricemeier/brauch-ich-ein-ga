@@ -18,7 +18,7 @@ describe("Add ticket", () => {
 
   it("after adding ticket, should navigate to dashboard", () => {
     const price = 14.15;
-    cy.visit("/");
+    cy.visit("/addticket");
     cy.get("input").type("" + price);
     cy.contains("Speichern").click();
     cy.contains("Übersicht");

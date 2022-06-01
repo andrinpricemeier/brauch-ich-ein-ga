@@ -27,7 +27,15 @@ export const DashboardScreen = ({ navigation }: { navigation: any }) => {
   const addTicket = useCallback(() => {
     navigation.navigate("Fahrbilletkauf erfassen");
   }, []);
-  console.log(ticketRepository.getMonthlyAverage());
+
+  const viewTickets = useCallback(() => {
+    navigation.navigate("Fahrbillets");
+  }, []);
+
+  const changeGAPrice = useCallback(() => {
+    navigation.navigate("GA-Preis");
+  }, []);
+
   return (
     <View style={tailwind("h-full flex-col m-auto p-5")}>
       <Text style={tailwind("text-3xl mb-12")}>Übersicht</Text>
@@ -42,6 +50,8 @@ export const DashboardScreen = ({ navigation }: { navigation: any }) => {
         {ticketRepository.getMonthlyAverage()}
       </Text>
       <Button onPress={addTicket} title="Fahrbilletkauf erfassen" />
+      <Button onPress={viewTickets} title="Fahrbillets anschauen" />
+      <Button onPress={changeGAPrice} title="GA-Preis ändern" />
     </View>
   );
 };

@@ -6,13 +6,13 @@ import { storage } from "../storage/storage";
 
 const repository = new GAPriceRepository(storage);
 
-export const InitialGAPriceScreen = ({ navigation }: { navigation: any }) => {
+export const EditGAPriceScreen = ({ navigation }: { navigation: any }) => {
   const tailwind = useTailwind();
   const [price, setPrice] = useState<string>("");
 
   useEffect(() => {
     if (repository.hasPrice()) {
-      navigation.navigate("Dashboard");
+      setPrice("" + repository.getPrice()!.price);
     }
   }, []);
 

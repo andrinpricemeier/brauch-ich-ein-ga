@@ -3,12 +3,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { TailwindProvider } from "tailwind-rn";
 import utilities from "./tailwind.json";
-import { InitialGAPriceScreen } from "./src/screen/InitialGAPriceScreen";
+import { EditGAPriceScreen } from "./src/screen/EditGAPriceScreen";
 import { GAPriceRepository } from "./src/storage/GAPriceRepository";
 import { storage } from "./src/storage/storage";
 import { DashboardScreen } from "./src/screen/DashboardScreen";
 import { AddTicketScreen } from "./src/screen/AddTicketScreen";
 import { TicketRepository } from "./src/storage/TicketRepository";
+import { TicketHistoryScreen } from "./src/screen/TicketHistoryScreen";
 
 const AppTheme = {
   ...DefaultTheme,
@@ -25,6 +26,7 @@ const linking = {
       "GA-Preis": "gaprice",
       Dashboard: "dashboard",
       "Fahrbilletkauf erfassen": "addticket",
+      Fahrbillets: "tickets",
     },
   },
 };
@@ -41,13 +43,14 @@ const App = () => {
   return (
     <TailwindProvider utilities={utilities}>
       <NavigationContainer theme={AppTheme} linking={linking}>
-        <Stack.Navigator initialRouteName="GAPreis">
-          <Stack.Screen name="GA-Preis" component={InitialGAPriceScreen} />
+        <Stack.Navigator initialRouteName="Dashboard">
           <Stack.Screen name="Dashboard" component={DashboardScreen} />
+          <Stack.Screen name="GA-Preis" component={EditGAPriceScreen} />
           <Stack.Screen
             name="Fahrbilletkauf erfassen"
             component={AddTicketScreen}
           />
+          <Stack.Screen name="Fahrbillets" component={TicketHistoryScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </TailwindProvider>

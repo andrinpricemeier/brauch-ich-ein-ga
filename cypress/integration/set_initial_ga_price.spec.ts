@@ -1,7 +1,7 @@
 describe("Set initial GA price", () => {
   it("stores price", () => {
     const price = 4523.52;
-    cy.visit("/");
+    cy.visit("/gaprice");
     cy.get("input").type("" + price);
     cy.contains("Speichern").click();
     cy.window()
@@ -13,18 +13,9 @@ describe("Set initial GA price", () => {
 
   it("after initial GA price set, should navigate to dashboard", () => {
     const price = 4523.52;
-    cy.visit("/");
+    cy.visit("/gaprice");
     cy.get("input").type("" + price);
     cy.contains("Speichern").click();
-    cy.contains("Übersicht");
-  });
-
-  it("initial GA price screen is only shown once", () => {
-    const price = 4523.52;
-    cy.visit("/");
-    cy.get("input").type("" + price);
-    cy.contains("Speichern").click();
-    cy.reload();
     cy.contains("Übersicht");
   });
 });
