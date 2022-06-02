@@ -67,17 +67,23 @@ export const DashboardScreen = ({ navigation }: { navigation: any }) => {
           </Text>
         </View>
       </View>
-      <PrimaryButton
-        onPress={addTicket}
-        title="Billet erfassen"
-        buttonStyle={tailwind("mr-4")}
-      />
-      <View style={tailwind("flex flex-row mt-3 w-full")}>
-        <SecondaryButton onPress={viewTickets} title="Billets anzeigen" />
+      <View style={tailwind("flex flex-row")}>
+        <PrimaryButton
+          onPress={addTicket}
+          title="Billet erfassen"
+          buttonStyle={tailwind("w-full")}
+        />
+      </View>
+      <View style={tailwind("flex flex-row mt-3")}>
+        <SecondaryButton
+          onPress={viewTickets}
+          title="Billets anzeigen"
+          buttonStyle={tailwind("grow mr-4")}
+        />
         <SecondaryButton
           onPress={changeGAPrice}
           title="GA-Preis ändern"
-          buttonStyle={tailwind("ml-3")}
+          buttonStyle={tailwind("ml-auto grow")}
         />
       </View>
     </View>
