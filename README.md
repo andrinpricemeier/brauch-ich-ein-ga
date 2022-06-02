@@ -1,33 +1,20 @@
+<div align="center">
+  <h1>Brauch ich ein GA?</h1>
+  <img src="./assets/icon.png" width="200"/>
+  <p>Find out when it makes sense to switch to a Generalabonnement (GA)!</p>
+</div>
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![Quality Checks](https://github.com/andrinmeier/brauch-ich-ein-ga/actions/workflows/quality_checks.yml/badge.svg)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=andrinmeier_brauch-ich-ein-ga&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=andrinmeier_brauch-ich-ein-ga)
+[![Discord](https://img.shields.io/discord/978401806990332014)](https://discord.com/channels/978401806990332014/978402326714916914)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 # Brauch ich ein GA?
 
-An application for tracking your public transit expenses informing you when it's time to buy a GA
+
 
 ## Vision
 
 A mobile application that requires no user registration and login that lets you track all public transit expenses.
 As soon as a user defined limit is reached, the user should be notified.
-
-## Requirements workshop results
-
-* Edit GA price
-* Dashboard: Display whether GA should be bought, average GA price (per month), average bought tickets price (per month) and difference of them
-* Add ticket
-* Edit ticket
-* Delete ticket
-* View tickets
-
-## Events
-
-* GA price changed
-* Limit reached
-* Ticket added
-* Ticket changed
-* Ticket deleted
-
-## Screens
-
-* Edit GA: simple textbox, setting GA price, save button
-* Ticket history: all tickets, ordered by time (newest first), with delete button and edit button
-* Edit ticket: simple textbox, save button
-* Dashboard (first screen when app started): top: "should i buy a GA or not? yes/no", middle: "avg ga price per month, avg bought tickets per month", bottom: simple plus-sign or "add ticket". When clicking on avg ga price = open edit ga. when clicking on avg bought tickets: view ticket history
-* First time app start: show edit ga screen
