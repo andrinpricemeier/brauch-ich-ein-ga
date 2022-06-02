@@ -1,0 +1,1 @@
+Brauch ich ein GA? does not store any sensitive data on any external servers. Any and all data entered in the App are stored on the user's device.
