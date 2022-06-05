@@ -11,11 +11,11 @@
 [![e2e](https://img.shields.io/badge/e2e-Cypress-04C38E.svg)](https://www.cypress.io/)
 [![Discord](https://img.shields.io/discord/978401806990332014)](https://discord.com/channels/978401806990332014/978402326714916914)
 
-# Brauch ich ein GA?
-
-
-
-## Vision
+# Vision
 
 A mobile application that requires no user registration and login that lets you track all public transit expenses.
 As soon as a user defined limit is reached, the user should be notified.
+
+# Google Play Store
+
+This App is available on the [Google Play Store](https://play.google.com/store/apps/details?id=ch.pricemeier.brauchicheinga).
