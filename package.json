@@ -8,7 +8,7 @@
     "start:css-rn": "npm run generate:css-rn -- --watch",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "web": "expo start --web",
+    "web": "npm run generate:css && npm run generate:css-rn && expo start --web",
     "dev": "run-p dev:*",
     "dev:web": "expo start --web",
     "dev:css": "npm run generate:css -- --watch",
