@@ -14,8 +14,6 @@
     "dev:css": "npm run generate:css -- --watch",
     "dev:css-rn": "npm run generate:css-rn -- --watch",
     "eject": "expo eject",
-    "storybook": "concurrently \"npm run dev:css\" \"start-storybook -p 7007\"",
-    "build-storybook": "build-storybook",
     "generate:css": "tailwindcss --input input.css --output tailwind.css --no-autoprefixer",
     "generate:css-rn": "tailwind-rn",
     "test:e2e:run": "start-server-and-test web http://localhost:19006 \"npx cypress run\""
