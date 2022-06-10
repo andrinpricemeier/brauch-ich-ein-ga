@@ -22,12 +22,15 @@ jobs:
         with:
           node-version: 16
 
-      - name: Download deps
+      - name: Install deps
         uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
 
-      - name: Cypress run
+      - name: unit tests
+        run: npm run coverage
+
+      - name: e2e tests
         uses: cypress-io/github-action@v3
         with:
           start: npm run web
