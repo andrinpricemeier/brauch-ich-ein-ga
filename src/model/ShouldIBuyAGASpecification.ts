@@ -1,5 +1,4 @@
-import { dinero, Dinero, lessThan } from "dinero.js";
-import { CHF } from "@dinero.js/currencies";
+import { Dinero, lessThan } from "dinero.js";
 
 export class ShouldIBuyAGASpecification {
   isSatisifiedBy(

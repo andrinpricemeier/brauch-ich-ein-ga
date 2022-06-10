@@ -6,7 +6,7 @@ permissions:
   contents: read
 jobs:
   all_checks:
-    name: Cypress
+    name: Quality checks
     runs-on: ubuntu-latest
     steps:
       - name: Cancel Previous Runs
