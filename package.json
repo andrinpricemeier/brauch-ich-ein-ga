@@ -16,7 +16,9 @@
     "eject": "expo eject",
     "generate:css": "tailwindcss --input input.css --output tailwind.css --no-autoprefixer",
     "generate:css-rn": "tailwind-rn",
-    "test:e2e:run": "start-server-and-test web http://localhost:19006 \"npx cypress run\""
+    "test:e2e:run": "start-server-and-test web http://localhost:19006 \"npx cypress run\"",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@expo/webpack-config": "~0.16.2",
@@ -48,13 +50,15 @@
     "@types/uuid": "^8.3.4",
     "babel-loader": "^8.2.5",
     "babel-plugin-istanbul": "^6.1.1",
+    "c8": "^7.11.3",
     "concurrently": "^7.2.1",
     "cypress": "^9.7.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.14",
     "start-server-and-test": "^1.14.0",
     "tailwindcss": "^3.0.24",
-    "typescript": "~4.3.5"
+    "typescript": "~4.3.5",
+    "vitest": "^0.14.2"
   },
   "jest": {
     "preset": "jest-expo",
