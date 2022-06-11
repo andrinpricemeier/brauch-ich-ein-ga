@@ -14,7 +14,7 @@
 # Vision
 
 A mobile application that requires no user registration and login that lets you track all public transit expenses.
-As soon as a user defined limit is reached, the user should be notified.
+As soon as the expenses exceed the user defined price of a Generalabonnement (GA), the user is notified.
 
 # Google Play Store
 
