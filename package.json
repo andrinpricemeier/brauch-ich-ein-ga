@@ -18,7 +18,8 @@
     "generate:css-rn": "tailwind-rn",
     "test:e2e:run": "start-server-and-test web http://localhost:19006 \"npx cypress run\"",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "auto-submit": "eas build --auto-submit"
   },
   "dependencies": {
     "@expo/webpack-config": "~0.16.2",
