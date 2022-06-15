@@ -11,6 +11,14 @@
 [![e2e](https://img.shields.io/badge/e2e-Cypress-04C38E.svg)](https://www.cypress.io/)
 [![Discord](https://img.shields.io/discord/978401806990332014)](https://discord.com/channels/978401806990332014/978402326714916914)
 
+# Screenshots
+
+<p float="middle">
+  <img src="./readme_images/app_screen_1.jpg" width="100"/>
+  <img src="./readme_images/app_screen_2.jpg" width="100"/>
+  <img src="./readme_images/app_screen_3.jpg" width="100"/>
+</p>
+
 # Vision
 
 A mobile application that requires no user registration and login that lets you track all public transit expenses.
