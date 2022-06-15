@@ -1,6 +1,6 @@
 {
   "name": "brauch-ich-ein-ga",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "start": "run-p start:*",
     "start:expo": "expo start --dev-client",

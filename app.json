@@ -3,7 +3,7 @@
     "name": "Brauch ich ein GA?",
     "displayName": "Brauch ich ein GA?",
     "slug": "brauch-ich-ein-ga",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
