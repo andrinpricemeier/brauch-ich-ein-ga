@@ -2,7 +2,7 @@
   "expo": {
     "name": "Brauch ich ein GA?",
     "slug": "brauch-ich-ein-ga",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
