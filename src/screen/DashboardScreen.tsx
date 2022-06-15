@@ -71,7 +71,7 @@ export const DashboardScreen = ({ navigation }: { navigation: any }) => {
         <PrimaryButton
           onPress={addTicket}
           title="Billet erfassen"
-          buttonStyle={tailwind("w-full")}
+          buttonStyle={tailwind("grow")}
         />
       </View>
       <View style={tailwind("flex flex-row mt-3")}>
