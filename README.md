@@ -14,9 +14,9 @@
 # Screenshots
 
 <p float="middle">
-  <img src="./readme_images/app_screen_1.jpg" width="100"/>
-  <img src="./readme_images/app_screen_2.jpg" width="100"/>
-  <img src="./readme_images/app_screen_3.jpg" width="100"/>
+  <img src="./readme_images/app_screen_1.jpg" width="200"/>
+  <img src="./readme_images/app_screen_2.jpg" width="200"/>
+  <img src="./readme_images/app_screen_3.jpg" width="200"/>
 </p>
 
 # Vision
